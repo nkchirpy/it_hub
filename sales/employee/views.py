@@ -11,3 +11,7 @@ class Callview(TemplateView):
 
 class Engineerview(TemplateView):
     template_name = 'employee/engineer.html'
+
+
+class Dashboard(TemplateView):
+    template_name = 'employee/dashboard.html'

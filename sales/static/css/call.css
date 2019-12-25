@@ -1,4 +1,9 @@
 .menu_bg {
-    background-color: #0000FF;
+    background-color: #26268c;
     color:white;
+}
+
+body {
+    font-family: 'Varela Round', sans-serif;
+
 }
