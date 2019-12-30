@@ -1,13 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
+  {% load static %}
+
   <meta charset="utf-8">
   <title>{% block title %}IT HUB{% endblock %}</title>
-</head>
-<body>
-  <main>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <style>
+    @media screen and (max-width: 375px) {
+      m_size {
+        width: 100px;
+        height: auto;
+      }
+}
+  </style>
+</head> 
+<body style="font-family: 'Varela Round', sans-serif;">
+  
+  
+
+  
+  <main  style="margin-top: 8rem;">
+    <center><img class="m_size" src="{% static 'image/logo.jpeg' %}"/>
     {% block content %}
     {% endblock %}
   </main>
+
+</center>
 </body>
 </html>
