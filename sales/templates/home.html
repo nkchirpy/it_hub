@@ -1,20 +1,10 @@
-<!-- templates/home.html-->
-{% extends 'base.html' %}
-
-{% block title %}Login{% endblock %}
-
-{% block content %}
-
-
-  {% if user.is_authenticated %}
-     
-      Hi {{ user.username }}!
-        <p><a href="{% url 'dashboard' %}">logout</a></p>
-  {% else %}
-  
-  
-  <h1><a href="{% url 'login' %}">Click here to login</a></h1>
-  
-  
-  {% endif %}
-{% endblock %}
+{% extends "employee/hub_base.html" %} 
+    {% load static %} 
+    {% block title %}Dashboard{% endblock %} 
+    
+    
+    {% block body_block %}
+        <div class="container">
+            <img src="{% static 'image/under.png' %}" style="width:80%;margin-top: 2%;"/>
+        </div>
+    {% endblock %}

@@ -43,8 +43,8 @@ class CallAllocation(models.Model):
     end_date = models.DateField(blank=True)
     remarks = models.TextField( max_length=2000)
 
-    start_time = models.TimeField(blank=True,null=True)
-    end_time = models.TimeField(blank=True,null=True)
+    start_time = models.TimeField(blank=True,null=True,auto_now=False,auto_now_add=False)
+    end_time = models.TimeField(blank=True,null=True,default=datetime.now)
     def __str__(self):
         return self.engineer.name
 
