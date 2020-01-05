@@ -18,14 +18,16 @@
 <body style="font-family: 'Varela Round', sans-serif;">
   
   
-
+  <div class="container" style="">
   
-  <main  style="margin-top: 8rem;">
-    <center><img class="m_size" src="{% static 'image/logo.jpeg' %}"/>
-    {% block content %}
-    {% endblock %}
-  </main>
+    <main  style="margin-top: 8rem;margin-bottom: 8rem;">
+        <center><img class="m_size" src="{% static 'image/logo.jpeg' %}"/>
+        {% block content %}
+        {% endblock %}
+        </center>
+    </main>
 
-</center>
+  </div>
+
 </body>
 </html>

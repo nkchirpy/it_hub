@@ -4,10 +4,32 @@
 {% block title %}Login{% endblock %}
 
 {% block content %}
-<h2>Login</h2>
+<!-- <h2>Login</h2>
 <form class="form-group" method="post" style="font-size: large;">
   {% csrf_token %}
   {{ form.as_p }}
   <button class="btn btn-primary" type="submit">Login</button>
-</form>
+</form> -->
+
+<h2>Login</h2>
+
+  <form method="post">
+    {% csrf_token %}
+      {{ form.non_field_errors }}
+      <div class="" style="padding-top: 1%;">
+          {{ form.username.errors }}
+          <label for="{{ form.username.id_for_label }}">Username:</label>
+          {{ form.username }}
+      </div>
+      <div style="padding-top: 2%;">
+          {{ form.password.errors }}
+          <label for="{{ form.password.id_for_label }}">Password:</label>
+          {{ form.password }}
+      </div>
+
+      <div style="padding-bottom: 10%;padding-top: 1%;">
+        <button  class="btn btn-primary" type="submit">Login</button>
+      </div>
+  </form>
+
 {% endblock %}
