@@ -29,5 +29,5 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='home.html'), name='home'), # new
     path('dashboard',views.Dashboard.as_view(), name='dashboard'),
     path('call/',views.CallView.as_view(), name='call'),
-    path('engineer/',views.Engineerview.as_view(), name='engineer'),
+    path('engineer/',views.to_do_list, name='engineer'),
 ]
