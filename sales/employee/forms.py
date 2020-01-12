@@ -5,6 +5,12 @@ import datetime
 from django.contrib.admin import widgets
 class ItCallAllocation(forms.ModelForm):
 
+    # start_date = forms.DateTimeInput(widget=forms.DateInput(format = '%d/%m/%Y'), 
+    #                              input_formats=('%d/%m/%Y',))
+    # end_date = forms.DateField(widget=forms.DateInput(format = '%d/%m/%Y'), 
+    #                            input_formats=('%d/%m/%Y',), 
+    #                            required=False)
+
     class Meta:
         model = CallAllocation
         fields = ['customer','product','issue','priority','estimate_hours','engineer','status','start_date','end_date','remarks','start_time','end_time']
@@ -17,7 +23,7 @@ class ItCallAllocation(forms.ModelForm):
 
             'product':forms.TextInput(attrs={
                                             'class':'form-control',
-                                            'id':'inputEmail4',
+                                            'id':'nk_product',
                                             'name':'product',
                                             'placeholder':'Enter the product'}),
 
@@ -44,20 +50,21 @@ class ItCallAllocation(forms.ModelForm):
                                             'id':'inputEmail4',
                                             'class':'form-control mr-sm-2',
                                             'name':'status'}),   
-            'start_date':forms.DateTimeInput(attrs={
+            'start_date':forms.DateInput(attrs={
                                                     'type': 'date', 
                                                     'class':'form-control mr-sm-2',
-                                                    'name':'start_date'}),
+                                                    'name':'start_date',
+                                                    }),
 
-            'start_time':forms.DateTimeInput(attrs={
+            'start_time':forms.TimeInput(attrs={
                                                     'type': 'time', 
                                                     'class':'form-control mr-sm-2',
                                                     'name':'start_time'}),
-            'end_time':forms.DateTimeInput(attrs={
+            'end_time':forms.TimeInput(attrs={
                                                     'type':'time',
                                                     'class':'form-control mr-sm-2',
                                                     'name':'end_time'}),
-            'end_date':forms.DateTimeInput(attrs={
+            'end_date':forms.DateInput(attrs={
                                                     'type': 'date', 
                                                     'class':'form-control mr-sm-2',
                                                     'name':'end_date'}),

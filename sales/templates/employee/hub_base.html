@@ -27,6 +27,14 @@
 
     </style>
 
+      <script type="text/javascript">
+             $(document).ready(function() {
+                 console.log("Time until DOMready");
+             });
+             $(".nk_sd").value = '2020-12-31';
+        </script>
+
+
   {% if user.is_authenticated %}
 
     <body class="">
@@ -40,6 +48,8 @@
                 {% if request.user.is_superuser %}
                   <a href="{% url 'call' %}" class="list-group-item list-group-item-action menu_bg">Call Allocation</a>
                 {% endif %}
+
+                
                 <a href="{% url 'engineer' %}" class="list-group-item list-group-item-action menu_bg">Engineer</a>
                 <a href="#" class="list-group-item list-group-item-action menu_bg">About us</a>
                 <a href="#" class="list-group-item list-group-item-action menu_bg">Contact us</a>
@@ -96,6 +106,7 @@
               $("#wrapper").toggleClass("toggled");
             });
           </script>
+          
     </body>
 
     {% else %}

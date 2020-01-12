@@ -1,0 +1,85 @@
+{% extends "employee/hub_base.html" %} 
+{% load static %} 
+
+{% block title %}Call Allocation{% endblock %} 
+
+{% block body_block %}
+    
+
+  <div class="container" style="margin-top: 5%;">
+    <form method="POST">
+      {% csrf_token %}
+      <div class="form-row" readonly="readonly">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Customer</label>
+
+
+          <!-- <input type="select" class="form-control" disabled="disabled" value="{{ form.customer.value }}"/> -->
+          
+          {{ form.customer }}
+        </div>
+        <div class="form-group col-md-6" disabled="disabled">
+          <label for="inputPassword4">Product</label>
+          <input type="text" class="form-control" disabled="disabled" value="{{ form.product.value }}"/>
+          <!-- {{ form.product }} -->
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Engineer</label>
+          {{ form.engineer }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Estimate Hours</label>
+          {{ form.estimate_hours }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Issue</label>
+          {{ form.issue }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword4">Status</label>
+          {{ form.status }}
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <label for="inputEmail4">Start date</label>
+          {{ form.start_date }}
+        </div>
+        <div class="form-group col-md-2 nk_sd">
+          <label for="inputEmail4">Start time</label>
+          {{ form.start_time }}
+        </div>
+        <div class="form-group col-md-4">
+          <label for="inputEmail4">End date</label>
+          {{ form.end_date }}
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputEmail4">End time</label>
+          {{ form.end_time }}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Priority</label>
+          {{ form.priority }}
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputEmail4">Remarks</label>
+          {{ form.remarks }}
+        </div>
+      </div>
+
+      <input type="submit" value="Save" class="btn btn-primary">
+    </form>
+  </div>
+    {% endblock %}
+
+
+    

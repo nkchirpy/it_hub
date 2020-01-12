@@ -17,7 +17,7 @@ class CallAllocation(models.Model):
     
 
     hub_status = (
-        ('not_yet', 'Not Yet'),
+        ('not_yet', 'NotYet',),
         ('in_progress', 'In Progress'),
         ('on_hold', 'On hold'),
         ('completed', 'Completed'),
@@ -36,13 +36,13 @@ class CallAllocation(models.Model):
     estimate_hours = models.FloatField()
     engineer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
 
-    status = models.CharField(max_length=15,choices=hub_status,blank=True)
-    start_date = models.DateField(blank=True)
-    end_date = models.DateField(blank=True)
-    remarks = models.TextField( max_length=2000)
+    status = models.CharField(max_length=15,choices=hub_status,blank=False,null=False)
+    start_date = models.DateField()
+    end_date = models.DateField(blank=True,null=True)
+    remarks = models.TextField( max_length=2000,blank=True,null=True)
 
-    start_time = models.TimeField(blank=True,null=True,auto_now=False,auto_now_add=False)
-    end_time = models.TimeField(blank=True,null=True,default=datetime.now)
+    start_time = models.TimeField(auto_now=False,auto_now_add=False)
+    end_time = models.TimeField(blank=True,null=True)
     
     
     def __str__(self):
