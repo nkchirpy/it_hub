@@ -17,46 +17,49 @@ class ItCallAllocation(forms.ModelForm):
 
         widgets = {
             'customer':forms.Select(attrs={
-                                            'id':'inputState',
+                                            'id':'customer_id',
                                             'class':'form-control mr-sm-2',
                                             'name':'customer'}),
 
             'product':forms.TextInput(attrs={
                                             'class':'form-control',
-                                            'id':'nk_product',
+                                            'id':'product_id',
                                             'name':'product',
                                             'placeholder':'Enter the product'}),
 
             'issue':forms.TextInput(attrs={
                                             'class':'form-control',
-                                            'id':'inputEmail4',
+                                            'id':'issue_id',
                                             'name':'issue',
                                             'placeholder':'Enter the issue'}),
 
             'estimate_hours':forms.NumberInput(attrs={
+                                                    'id':'estimate_hours_id',
                                                     'type':'number',
                                                     'class':'form-control mr-sm-2'}),
 
             'priority':forms.Select(attrs={
-                                            'id':'inputState',
+                                            'id':'priority_id',
                                             'class':'form-control mr-sm-2',
                                             'name':'priority'}),
 
             'engineer':forms.Select(attrs={
-                                            'id':'inputState',
+                                            'id':'engineer_id',
                                             'class':'form-control mr-sm-2',
                                             'name':'engineer'}),
             'status':forms.Select(attrs={
-                                            'id':'inputEmail4',
+                                            'id':'status_id',
                                             'class':'form-control mr-sm-2',
                                             'name':'status'}),   
-            'start_date':forms.DateInput(attrs={
+            'start_date':forms.DateInput(attrs={    
+                                                    'id':'start_date_id',
                                                     'type': 'date', 
                                                     'class':'form-control mr-sm-2',
                                                     'name':'start_date',
                                                     }),
 
             'start_time':forms.TimeInput(attrs={
+                                                    'id':'start_time_id',
                                                     'type': 'time', 
                                                     'class':'form-control mr-sm-2',
                                                     'name':'start_time'}),
@@ -72,5 +75,7 @@ class ItCallAllocation(forms.ModelForm):
             'remarks':forms.Textarea(attrs={
                                             'class':'form-control mr-sm-2',
                                             'name':'remarks',
+                                            'cols':24,
+                                            'rows':5
             })
         }  
