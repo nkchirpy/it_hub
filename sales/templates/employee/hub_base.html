@@ -19,11 +19,16 @@
     <link href="{% static 'css/base/bootstrap.min.css' %}" rel="stylesheet"/>
     <link href="{% static 'css/simple-sidebar.css' %}" rel="stylesheet" />
     <link href="{% static 'css/call.css' %}" rel="stylesheet"/>
+
+    <link href="{% static 'css/engineer.css' %}" rel="stylesheet"/>
+    
     </head>
 
     
     <style>
-
+      .grey_color {
+        color: #999;
+      }
 
     </style>
 
@@ -99,6 +104,23 @@
             $("#wrapper").toggleClass("toggled");
           });
         </script> 
+        <script>
+            /*
+  I'm a newbie - don't judge me ;-) */
+
+        $(document).ready(function() {
+          
+          $("i.fa-th").click(function() {
+            $("#toggle-view").attr('class', 'thumbnail');
+          });
+          
+          $("i.fa-list").click(function() {
+            $("#toggle-view").attr('class', 'listview');
+          });
+          
+
+        });
+        </script>
     </body>
 
     {% else %}

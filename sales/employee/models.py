@@ -10,17 +10,17 @@ class CallAllocation(models.Model):
 
 
     PRIORITY_CHOICES = (
-        ('low', 'Low'),
-        ('medium', 'Medium'),
-        ('high', 'High'),
+        ('Low', 'Low'),
+        ('Medium', 'Medium'),
+        ('High', 'High'),
     )
     
 
     hub_status = (
-        ('not_yet', 'NotYet',),
-        ('in_progress', 'In Progress'),
-        ('on_hold', 'On hold'),
-        ('completed', 'Completed'),
+        ('Not-Yet', 'Not-Yet',),
+        ('In-Progress', 'In-Progress'),
+        ('On-Hold', 'On-Hold'),
+        ('Completed', 'Completed'),
 
     )
     
