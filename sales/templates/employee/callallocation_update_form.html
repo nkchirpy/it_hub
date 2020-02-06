@@ -30,8 +30,7 @@
           $('#engineer_id').css('pointer-events','none');
           $('#product_id').attr('readonly', true); 
           $('#issue_id').attr('readonly', true); 
-          $('#estimate_hours_id').attr('readonly', true); 
-       
+          $('#estimate_hours_id').attr('readonly', true);        
       });
      
    </script>
@@ -48,7 +47,7 @@
                <a href="{% url 'call' %}" class="list-group-item list-group-item-action menu_bg">Call Allocation</a>
                {% endif %}
                <a href="{% url 'engineer' %}" class="list-group-item list-group-item-action menu_bg">Engineer</a>
-               <a href="#" class="list-group-item list-group-item-action menu_bg">About us</a>
+               <a href="{% url 'done_list' %}" class="list-group-item list-group-item-action menu_bg">Completed</a>
                <a href="#" class="list-group-item list-group-item-action menu_bg">Contact us</a>
                <!-- <a href="#" class="list-group-item list-group-item-action menu_bg">Status</a> -->
             </div>
