@@ -33,4 +33,6 @@ urlpatterns = [
     path('call/<int:pk>/',views.CallView.as_view(), name='call_done'),
     path('engineer/',views.to_do_list, name='engineer'),
     path('engineer/<int:pk>/edit/',views.todo_edit, name='engineer_edit'),
+    path('done/',views.done, name='done_list'),
+    path('done/<int:pk>/view/',views.done_view, name='done_view'),
 ]

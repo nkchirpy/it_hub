@@ -64,15 +64,18 @@ class ItCallAllocation(forms.ModelForm):
                                                     'class':'form-control mr-sm-2',
                                                     'name':'start_time'}),
             'end_time':forms.TimeInput(attrs={
+                                                    'id':'end_time_id',
                                                     'type':'time',
                                                     'class':'form-control mr-sm-2',
                                                     'name':'end_time'}),
-            'end_date':forms.DateInput(attrs={
+            'end_date':forms.DateInput(attrs={          
+                                                    'id':'end_date_id',
                                                     'type': 'date', 
                                                     'class':'form-control mr-sm-2',
                                                     'name':'end_date'}),
 
             'remarks':forms.Textarea(attrs={
+                                            'id':'remarks_id',
                                             'class':'form-control mr-sm-2',
                                             'name':'remarks',
                                             'cols':24,

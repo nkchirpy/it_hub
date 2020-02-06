@@ -8,39 +8,73 @@ from .forms import ItCallAllocation
 
 def todo_edit(request, pk):
 
-    print("--======",)
+    
     post = get_object_or_404(CallAllocation, pk=pk)
     if request.method == "POST":
         form = ItCallAllocation(request.POST, instance=post)
         if form.is_valid():
             post = form.save(commit=False)
-            # post.author = request.user
-            # post.published_date = timezone.now()
             post.save()
             return redirect('dashboard')
     else:
         
         form = ItCallAllocation(instance=post)
-        # print("-=-=-=-=-=-",form)
     return render(request, 'employee/callallocation_update_form.html', {'form': form})
 
 def to_do_list(request):
 
     
     if request.user.is_authenticated:
-        print('come on---am i triggering---')
 
         if request.user.is_superuser:
-            tasks = CallAllocation.objects.all()
+            
+            tasks = CallAllocation.objects.filter(status__in=('Not-Yet','In-Progress','On-Hold'))
             return render(request, 'employee/engineer.html', {'tasks': tasks})
 
         else:
-            tasks = CallAllocation.objects.filter(engineer=request.user)
+            tasks = CallAllocation.objects.filter(engineer=request.user, status__in=('Not-Yet','In-Progress','On-Hold'))
             return render(request, 'employee/engineer.html', {'tasks': tasks})
     
     else:
 
         return render(request, 'employee/hub_base.html')
+
+
+def done(request):
+
+    
+    if request.user.is_authenticated:
+
+        if request.user.is_superuser:
+            
+            tasks = CallAllocation.objects.filter(status='Completed')
+            return render(request, 'employee/done_engineer.html', {'tasks': tasks})
+
+        else:
+            tasks = CallAllocation.objects.filter(engineer=request.user, status='Completed')
+            return render(request, 'employee/done_engineer.html', {'tasks': tasks})
+    
+    else:
+
+        return render(request, 'employee/hub_base.html')
+
+
+def done_view(request, pk):
+
+    
+    post = get_object_or_404(CallAllocation, pk=pk)
+    if request.method == "POST":
+        form = ItCallAllocation(request.POST, instance=post)
+        # if form.is_valid():
+        #     post = form.save(commit=False)
+        #     post.save()
+        #     return redirect('dashboard')
+    else:
+        
+        form = ItCallAllocation(instance=post)
+    return render(request, 'employee/callallocation_view_form.html', {'form': form})
+
+
 
 
 class CallView(CreateView):

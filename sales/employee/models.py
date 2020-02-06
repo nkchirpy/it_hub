@@ -37,12 +37,13 @@ class CallAllocation(models.Model):
     engineer = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE)
 
     status = models.CharField(max_length=15,choices=hub_status,blank=False,null=False)
-    start_date = models.DateField(auto_now=False,auto_now_add=False)
-    end_date = models.DateField(blank=True,null=True)
+    
+    start_date = models.DateField(auto_now=False,auto_now_add=False,blank=True,null=True)
+    end_date = models.DateField(auto_now=False,auto_now_add=False,blank=True,null=True)
     remarks = models.TextField( max_length=2000,blank=True,null=True)
 
-    start_time = models.TimeField(auto_now=False,auto_now_add=False)
-    end_time = models.TimeField(blank=True,null=True)
+    start_time = models.TimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
+    end_time = models.TimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     
     
     def __str__(self):

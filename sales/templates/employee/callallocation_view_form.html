@@ -25,12 +25,19 @@
           $('#customer_id').css('pointer-events','none');
           $('#customer_id').attr('readonly', true); 
           $('#priority_id').attr('readonly', true); 
+          $('#status_id').attr('readonly', true); 
           $('#priority_id').css('pointer-events','none');
+          $('#status_id').css('pointer-events','none');
           $('#engineer_id').attr('readonly', true); 
           $('#engineer_id').css('pointer-events','none');
           $('#product_id').attr('readonly', true); 
           $('#issue_id').attr('readonly', true); 
           $('#estimate_hours_id').attr('readonly', true); 
+          $('#start_date_id').attr('readonly', true); 
+          $('#end_date_id').attr('readonly', true); 
+          $('#start_time_id').attr('readonly', true); 
+          $('#end_time_id').attr('readonly', true); 
+          $('#remarks_id').attr('readonly', true); 
        
       });
      
@@ -48,7 +55,7 @@
                <a href="{% url 'call' %}" class="list-group-item list-group-item-action menu_bg">Call Allocation</a>
                {% endif %}
                <a href="{% url 'engineer' %}" class="list-group-item list-group-item-action menu_bg">Engineer</a>
-               <a href="#" class="list-group-item list-group-item-action menu_bg">About us</a>
+               <a href="{% url 'done_list' %}" class="list-group-item list-group-item-action menu_bg">Completed</a>
                <a href="#" class="list-group-item list-group-item-action menu_bg">Contact us</a>
                <!-- <a href="#" class="list-group-item list-group-item-action menu_bg">Status</a> -->
             </div>
@@ -111,6 +118,7 @@
                         <div class="form-group col-md-6">
                            <label for="inputEmail4">Priority</label>
                            {{ form.priority }}
+                           
                         </div>
                      </div>
                      <div class="form-row">
@@ -126,23 +134,22 @@
                            <label for="inputEmail4">End date</label>
                            {{ form.end_date }}
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-2 nk_sd">
                            <label for="inputEmail4">End time</label>
                            {{ form.end_time }}
                         </div>
                      </div>
                      <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 nk_sd">
                            <label for="inputPassword4">Status</label>
                            {{ form.status }}
-                           
                         </div>
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-6 nk_sd">
                            <label for="inputEmail4">Remarks</label>
                            {{ form.remarks }}
                         </div>
                      </div>
-                     <input type="submit" value="Save" class="btn btn-primary">
+                     
                   </form>
                </div>
             </div>
