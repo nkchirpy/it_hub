@@ -38,6 +38,7 @@
           $('#start_time_id').attr('readonly', true); 
           $('#end_time_id').attr('readonly', true); 
           $('#remarks_id').attr('readonly', true); 
+          $('#actual_id').attr('readonly', true); 
        
       });
      
@@ -143,12 +144,17 @@
                         <div class="form-group col-md-6 nk_sd">
                            <label for="inputPassword4">Status</label>
                            {{ form.status }}
+                           <p></p>
+                           <label for="inputPassword4">Actual Time taken</label>
+                           {{ form.actual_time }}
                         </div>
                         <div class="form-group col-md-6 nk_sd">
                            <label for="inputEmail4">Remarks</label>
                            {{ form.remarks }}
+                           
                         </div>
                      </div>
+                     
                      
                   </form>
                </div>

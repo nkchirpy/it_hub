@@ -3,6 +3,7 @@ from django.views.generic import TemplateView,CreateView
 
 from .models import CallAllocation
 from .forms import ItCallAllocation
+from datetime import datetime
 # Create your views here.
 
 
@@ -12,8 +13,24 @@ def todo_edit(request, pk):
     post = get_object_or_404(CallAllocation, pk=pk)
     if request.method == "POST":
         form = ItCallAllocation(request.POST, instance=post)
+        
+        
         if form.is_valid():
             post = form.save(commit=False)
+
+
+            get_column = request.POST['actual_time']
+
+            start_date = form.cleaned_data['start_date']
+            start_time = form.cleaned_data['start_time']
+            end_date = form.cleaned_data['end_date']
+            end_time = form.cleaned_data['end_time']
+            dt_object1 = datetime.strptime(str(start_date) + ' ' + str(start_time), "%Y-%m-%d %H:%M:%S")
+            dt_object2 = datetime.strptime(str(end_date) + ' ' + str(end_time), "%Y-%m-%d %H:%M:%S")
+            actual = dt_object2 - dt_object1
+            post.actual_time = actual
+
+            
             post.save()
             return redirect('dashboard')
     else:
@@ -65,10 +82,7 @@ def done_view(request, pk):
     post = get_object_or_404(CallAllocation, pk=pk)
     if request.method == "POST":
         form = ItCallAllocation(request.POST, instance=post)
-        # if form.is_valid():
-        #     post = form.save(commit=False)
-        #     post.save()
-        #     return redirect('dashboard')
+       
     else:
         
         form = ItCallAllocation(instance=post)

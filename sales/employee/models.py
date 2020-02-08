@@ -45,6 +45,7 @@ class CallAllocation(models.Model):
     start_time = models.TimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     end_time = models.TimeField(auto_now=False,auto_now_add=False,blank=True,null=True)
     
+    actual_time = models.CharField(max_length=200,blank=True, null=True)
     
     def __str__(self):
         return self.engineer.username

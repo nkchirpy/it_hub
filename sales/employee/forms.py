@@ -13,7 +13,7 @@ class ItCallAllocation(forms.ModelForm):
 
     class Meta:
         model = CallAllocation
-        fields = ['customer','product','issue','priority','estimate_hours','engineer','status','start_date','end_date','remarks','start_time','end_time']
+        fields = ['customer','product','issue','priority','estimate_hours','engineer','status','start_date','end_date','remarks','start_time','end_time','actual_time']
 
         widgets = {
             'customer':forms.Select(attrs={
@@ -73,6 +73,12 @@ class ItCallAllocation(forms.ModelForm):
                                                     'type': 'date', 
                                                     'class':'form-control mr-sm-2',
                                                     'name':'end_date'}),
+
+            'actual_time':forms.TextInput(attrs={
+                                                    'id':'actual_id',
+                                                    'class':'form-control',
+                                                    'name':'actual_time',
+                                                }),
 
             'remarks':forms.Textarea(attrs={
                                             'id':'remarks_id',
